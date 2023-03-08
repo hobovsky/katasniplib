@@ -76,7 +76,7 @@
             "kataSnippets": [
                 "sampleTests", "submissionTests"
             ],
-            "content": "Default assertion messages of OCaml OUnit are usually very bad. OUnit assertions accept two optional arguments:\n- `~printer` defines a printer (stringifier) for compared values.\n- `~msg` is used to provide additional information about failure, if necessary.\n\nWith both arguments used, test output becomes more explicit:\n\n```ocaml\n\"(square 3) should return 9\" >:: (fun _ ->\n  let actual = square 3 in\n  assert_equal 9 actual ~printer: string_of_int ~msg: \"Incorrect answer for n=3\"\n)\n```\n\n```text\nTests for square\n    (square 3) should return 9\n        Incorrect answer for n=3\n        expected: 9 but got: 10\n    Completed in 0.22ms\nCompleted in 0.24ms\n```\n\n### References\n\n- [Improving OUnit Output](https://cs3110.github.io/textbook/chapters/data/ounit.html#improving-ounit-output)\n- [OUnit: xUnit testing framework for OCaml](https://ocaml.org/p/ounit2/2.2.3/doc/index.html#error-reporting)",
+            "contentUrl": "snippet_0006.md",
             "tags": []
         },
         {
@@ -88,7 +88,7 @@
             "kataSnippets": [
                 "sampleTests", "submissionTests"
             ],
-            "content": "```cpp\nAssert::That(actual, Equals(expected), ExtraMessage(\"Incorrect answer for n=\" + std::to_string(input)));\n```\n### Additional info:\n [C++ authoring guide](https://docs.codewars.com/languages/cpp/authoring#custom-assertion-messages)",
+            "contentUrl": "snippet_0007.md",
             "tags": []
         },
         {
@@ -100,7 +100,7 @@
             "kataSnippets": [
                 "submissionTests"
             ],
-            "content": "```python\n#import modules explicitly\nimport codewars_test as test\nimport preloaded\nfrom solution import user_solution\n\n@test.describe('Fixed tests')\ndef fixed_tests():\n\n    @test.it('Regular cases')\n    def regular_cases():\n        test.assert_equals(user_solution([1, 2, 3]), 6)\n        test.assert_equals(user_solution([2, 3]), 5)\n\n    @test.it('Edge cases')\n    def edge_cases():\n        test.assert_equals(user_solution([]), 0, \"Invalid answer for empty list\")\n        test.assert_equals(user_solution([2]), 2, \"Invalid answer for one element list\")\n\n    @test.it('Input should not be modified')\n    def do_not_mutate_input():\n        source_arr = list(range(100))\n        random.shuffle(source_arr)\n        arr_copy = source_arr[:]\n        #call user solution and ignore the result\n        user_solution(arr_copy)\n        #arr_copy should not be modified\n        test.assert_equals(arr_copy, source_arr, 'Input list was modified')\n\n\n@test.describe('Random tests')\ndef random_tests():\n\n    #non-global reference solution\n    def reference_solution(arr):\n        # calculate and return reference answer\n\n    #generate data for test cases with small inputs\n    #this test case generator combines a few types of input\n    #in one collection\n    def generate_small_inputs():    \n        test_cases = []\n        \n        #first type of input: regular list of small inputs (many of them)\n        for _ in range(50):\n            test_cases.append(generate_small_test_case())\n        \n        #another type of input: list with potentially tricky numbers\n        #(possibly many of them)\n        for _ in range(50):\n            test_cases.append(generate_small_tricky_test_case())\n\n        #potential edge case of single element list (a few of them)\n        for _ in range(10):\n            test_cases.append(generate_single_element_edge_case())\n\n        #another edge case: empty list\n        #Not always necessary, usually fixed test is enough.\n        #If present, there's no need for more than one.\n        test_cases.append([])\n\n        #randomly shuffle test cases to make their order unpredictable\n        random.shuffle(test_cases)\n\n        return test_cases\n\n    #Generator for large test cases, can be used for performance tests.\n    #Can generate structure and types of test cases similar to the\n    #generate_small_test_cases, but can also add more tricky cases,\n    #or skip on edge cases if they were sufficiently tested in the smaller set.\n    def generate_large_cases():\n        #... actual implementation\n\n    @test.it('Small inputs')\n    def small_inputs():\n        \n        inputs = generate_small_inputs()\n        for input in inputs:\n\n            #call reference solution first, in separate statement.\n            #we know it does not mutate the list, so no copy is needed\n            expected = reference_solution(input)\n\n            #call user solution and get actual answer.\n            #since the input is used after this call to compose\n            #the assertion message, a copy is passed\n            actual = user_solution(input[:])\n            \n            #Call assertion function.\n            #Custom assertion message is used to help users with diagnosing failures.\n            #Assertion message uses original, non-modified input.\n            test.assert_equals(actual, expected, f'Input: {input}')\n\n    @test.it('Large random tests')\n    def large_random_tests():\n        \n        large_inputs = generate_large_cases()\n        \n        for input in large_inputs:\n            \n            #expected answer calculated first, on separate line\n            expected = reference_solution(input)\n            \n            #assertion message composed before the user solution has a chance\n            #to mutate the input list\n            message = f'Invalid answer for list of length {len(input)}'\n\n            #actual answer calculated as second.\n            #no copy is made because input is not used anymore\n            test.assert_equals(user_solution(input), expected, message)\n```\n\nMore info:\n\n- [Python authoring guide](https://docs.codewars.com/languages/python/authoring#example-test-suite) in Codewars documentation.",
+            "contentUrl": "snippet_0008.md",
             "tags": []
         },
         {
@@ -112,7 +112,7 @@
             "kataSnippets": [
                 "sampleTests", "submissionTests", "preloaded"
             ],
-            "content": "Example of a stringizer for `std::pair<F,S>`:\n\n```cpp\nnamespace snowhouse\n{\n  template<typename F, typename S>\n  struct Stringizer<std::pair<F, S>>\n  {\n    static std::string ToString(const std::pair<F, S>& a)\n    {\n      std::stringstream stream;\n      stream << '(' << a.first << \", \" << a.second << ')';\n      return stream.str();\n    }\n  };\n}\n```\n\n### More info:\n\n- [Adding Custom Stringizers](https://docs.codewars.com/languages/cpp/igloo/stringizers) in C++ authoring recipes.",
+            "contentUrl": "snippet_0009.md",
             "tags": ["snowhouse"]
         },
         {
@@ -124,7 +124,7 @@
             "kataSnippets": [
                 "sampleTests", "submissionTests"
             ],
-            "content": "```javascript\nconst chai = require('chai');\nchai.config.truncateThreshold = 0;\n```\n\n```javascript\nconst { assert, config } = require('chai');\nconfig.truncateThreshold = 0;\n```",
+            "contentUrl": "snippet_0010.md",
             "tags": []
         },
         {
@@ -136,7 +136,7 @@
             "kataSnippets": [
                 "sampleTests", "submissionTests", "preloaded"
             ],
-            "content": "\n### Single elements\n\n```ocaml\nlet string_of_bool = function false -> \"false\" | true -> \"true\"\nlet string_of_char c = String.make 1 c\nlet string_of_int = string_of_int\nlet string_of_float = string_of_float\nlet string_of_float_with_reduced_precision f = Printf.sprintf \"%.2f\" f\n(* \".2\" means rounded to two decimals after the decimal point *)\n```\n\n### Collections\n\n```ocaml\nlet string_of_option elem_printer = function None -> \"None\" | Some e -> \"Some (\" ^ elem_printer e ^ \")\"\nlet string_of_list elem_printer l = \"[\" ^ (String.concat \"; \" @@ List.map elem_printer l) ^ \"]\"\nlet string_of_array elem_printer t = \"[\" ^ (String.concat \"; \" @@ List.init (Array.length t) (fun i -> elem_printer t.(i))) ^ \"]\"\n```\n\n### Composite\n\n```ocaml\nlet string_of_int_list = string_of_list string_of_int\nlet string_of_int_matrix = string_of_list string_of_int_list\nlet string_of_float_option = string_of_option string_of_float_with_reduced_precision\nlet string_of_float_option_array = string_of_array string_of_float_option\n```\n\n### Batteries\n\n```ocaml\n(* A printer for list of list of ints *)\nlet string_of_int_matrix = IO.to_string @@ List.print (List.print Int.print)\n\n(* A printer for a set of strings *)\nlet string_of_string_set = IO.to_string @@ Set.print String.print_quoted\n```",
+            "contentUrl": "snippet_0011.md",
             "tags": []
         },
         {
@@ -148,7 +148,7 @@
             "kataSnippets": [
                 "sampleTests", "submissionTests"
             ],
-            "content": "```rust\nassert_eq!(actual, expected, \"\\nIncorrect answer for n={input}\\nExpected: {expected}\nActual: {actual}\")\n```",
+            "contentUrl": "snippet_00012.md",
             "tags": []
         },
         {
