@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kata Snippets
 // @namespace    https://github.com/hobovsky/katasniplib/
-// @version      0.4
+// @version      0.5
 // @description  Insert snippets into kata
 // @author       hobovsky
 // @match        https://www.codewars.com/*
@@ -55,7 +55,7 @@ ul.snippetsList {
     function fetchError() {
         console.info("ERROR!", "error");
     }
-
+    let currentDialog = null;
     function buildSnippetsDialog(lang, library, editor) {
 
         jQuery('#glotSnippetsDialog').remove();
@@ -162,9 +162,9 @@ ul.snippetsList {
             "preloaded":        4,
             "description":      5
         };
-        jQuery("#accordion").accordion({active: idxs[editor] ?? 1 });
+        let accordion = jQuery("#accordion").accordion({active: idxs[editor] ?? 1 });
 
-        return jQuery('#glotSnippetsDialog').dialog({
+        let dialog = jQuery('#glotSnippetsDialog').dialog({
             autoOpen: false,
             height: 600,
             width: "80%",
@@ -178,6 +178,8 @@ ul.snippetsList {
                 }
             ]
         });
+        dialog.accordion = accordion;
+        return dialog;
     }
 
     function getActiveLang() {
@@ -191,10 +193,31 @@ ul.snippetsList {
         return { langId, langName };
     }
 
+
     function getSnippetsDialog(library, editor) {
         let lang = getActiveLang();
-        let dialog = buildSnippetsDialog(lang, library, editor);
-        return dialog;
+
+        if(lang.langId == currentDialog?.lang?.langId) {
+            console.info(`Reusing existing dialog for ${lang.langId}`);
+
+            const idxs = {
+                "sampleTests":      0,
+                "submissionTests":  1,
+                "completeSolution": 2,
+                "solutionSetup":    3,
+                "preloaded":        4,
+                "description":      5
+            };
+            let activeSection = idxs[editor] ?? 1;
+            currentDialog.accordion.accordion("option", "active", activeSection);
+
+            return currentDialog;
+        }
+
+        console.info(`Creating dialog for ${lang.langId}`);
+        currentDialog = buildSnippetsDialog(lang, library, editor);
+        currentDialog.lang = lang;
+        return currentDialog;
     }
 
     function showSnippetsLibrary(e) {
@@ -202,7 +225,7 @@ ul.snippetsList {
         let editor = e.data.editor;
         let go = library => getSnippetsDialog(library, editor).dialog("open");
 
-        let snippetsLib = GM_getValue("katasnippets.library") && false; // TODO: store the library locally
+        let snippetsLib = false && GM_getValue("katasnippets.library"); // TODO: store the library locally
         if(snippetsLib) {
             go(snippetsLib);
         } else {
