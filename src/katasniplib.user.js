@@ -9,6 +9,8 @@
 // @grant   GM_addStyle
 // @grant   GM_getValue
 // @grant   GM_setValue
+// @grant   GM_xmlhttpRequest
+// @connect raw.githubusercontent.com
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js
 // @require     http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js
 // @require     https://greasyfork.org/scripts/21927-arrive-js/code/arrivejs.js?version=198809
@@ -46,14 +48,23 @@ ul.snippetsList {
   list-style-type: disc;
 }
 `;
-GM_addStyle(css);
+    GM_addStyle(css);
 
-let snippetsLib = GM_getValue("katasnippets.library");
-if(!snippetsLib) {
-    console.info("Loading empty library");
-    snippetsLib = { snippets: [], tags: [] };
-    GM_setValue("katasnippets.library", snippetsLib);
-}
+    function fetchAborted() {
+        console.info("Fetch aborted.", "info");
+    }
+    function fetchError() {
+        console.info("ERROR!", "error");
+    }
+
+    let snippetsLib = GM_getValue("katasnippets.library");
+    if(!snippetsLib) {
+        console.info("Loading empty library");
+        snippetsLib = { snippets: [], tags: [] };
+        GM_setValue("katasnippets.library", snippetsLib);
+    }
+
+
 
     function buildSnippetsDialog(lang, editor) {
 
@@ -94,9 +105,43 @@ if(!snippetsLib) {
             "description":      "listDescriptionSnippets"
         };
 
+
+        function fetchSnippet(snippet) {
+
+            function snippetDownloaded(resp) {
+                if (resp.readyState !== 4) return;
+                const markdown = resp.response;
+                presentSnippet(markdown);
+            }
+
+            let url = `https://raw.githubusercontent.com/hobovsky/katasniplib/main/content/snippets/${snippet.contentUrl}`;
+            let opts = {
+                method: "GET",
+                url: url,
+                onreadystatechange: snippetDownloaded,
+                onabort: fetchAborted,
+                onerror: fetchError,
+                context: snippet,
+                responseType: "text"
+            };
+            GM_xmlhttpRequest(opts);
+            console.info(`Fetching snippet ${snippet} from url [${url}]`, "info");
+        }
+
         function showSnippetContent(e) {
+
+            let markdown = e.data.snippet.content;
+            if(markdown) {
+                presentSnippet(markdown);
+            } else {
+                fetchSnippet(e.data.snippet);
+            }
+        }
+
+
+        function presentSnippet(markdown) {
             document.getElementById('sniplibcontent').innerHTML =
-            marked.parse(e.data.snippet.content);
+                marked.parse(markdown);
 
             document.querySelectorAll('#sniplibcontent pre code').forEach((el) => {
                 hljs.highlightElement(el);
