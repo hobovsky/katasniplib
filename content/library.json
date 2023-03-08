@@ -11,7 +11,7 @@
                     "sampleTests",
                     "submissionTests"
                 ],
-                "content": "```python\nfrom solution import mysolution\nimport codewars_test as test\n```\n### Note:\nWhen imports are missing, they are implicitly prepended by test runner. However this behavior is deprecated and a subject to change, and should not be relied on. Required imports should be added explicitly.",
+                "contentUrl": "snippet_0001.md",
                 "tags": []
             },
             {
