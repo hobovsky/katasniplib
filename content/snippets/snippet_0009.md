@@ -18,4 +18,4 @@ namespace snowhouse
 
 ### More info:
 
-- [Adding Custom Stringizers](https://docs.codewars.com/languages/cpp/igloo/stringizers) in C++ authoring recipes.",
+- [Adding Custom Stringizers](https://docs.codewars.com/languages/cpp/igloo/stringizers) in C++ authoring recipes.
