@@ -56,7 +56,7 @@ ul.snippetsList {
         console.info("ERROR!", "error");
     }
 
-    function buildSnippetsDialog(lang, library) {
+    function buildSnippetsDialog(lang, library, editor) {
 
         jQuery('#glotSnippetsDialog').remove();
 
@@ -154,7 +154,15 @@ ul.snippetsList {
             }
         }
 
-        jQuery("#accordion").accordion();
+        const idxs = {
+            "sampleTests":      0,
+            "submissionTests":  1,
+            "completeSolution": 2,
+            "solutionSetup":    3,
+            "preloaded":        4,
+            "description":      5
+        };
+        jQuery("#accordion").accordion({active: idxs[editor] ?? 1 });
 
         return jQuery('#glotSnippetsDialog').dialog({
             autoOpen: false,
@@ -183,15 +191,16 @@ ul.snippetsList {
         return { langId, langName };
     }
 
-    function getSnippetsDialog(library) {
+    function getSnippetsDialog(library, editor) {
         let lang = getActiveLang();
-        let dialog = buildSnippetsDialog(lang, library);
+        let dialog = buildSnippetsDialog(lang, library, editor);
         return dialog;
     }
 
-    function showSnippetsLibrary() {
+    function showSnippetsLibrary(e) {
 
-        let go = library => getSnippetsDialog(library).dialog("open");
+        let editor = e.data.editor;
+        let go = library => getSnippetsDialog(library, editor).dialog("open");
 
         let snippetsLib = GM_getValue("katasnippets.library") && false; // TODO: store the library locally
         if(snippetsLib) {
@@ -222,8 +231,26 @@ ul.snippetsList {
     }
 
     $(document).arrive(".commands-container ul", {existing: true, onceOnly: false}, function(elem) {
+
+        function getEditor(e) {
+            let editorId = jQuery(e).parents("li[data-tab]").first().data("tab");
+            if(!editorId)
+                return null;
+
+            return {
+                write_description: "description",
+                answer:            "completeSolution",
+                code:              "completeSolution",
+                setup:             "solutionSetup",
+                package:           "preloaded",
+                fixture:           "submissionTests",
+                example_fixture:   "sampleTests"
+            }[editorId];
+        }
+
+        let editor = getEditor(elem) || "submissionTests";
         $(elem).append('<li><a class="lnkShowSnippets">{...}</a></li>');
-        $(elem).find("li a.lnkShowSnippets").click(showSnippetsLibrary);
+        $(elem).find("li a.lnkShowSnippets").on("click", { editor: editor }, showSnippetsLibrary);
     });
 
 
