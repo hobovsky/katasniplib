@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kata Snippets
 // @namespace    https://github.com/hobovsky/katasniplib/
-// @version      0.3
+// @version      0.4
 // @description  Insert snippets into kata
 // @author       hobovsky
 // @match        https://www.codewars.com/*
@@ -222,8 +222,8 @@ ul.snippetsList {
     }
 
     $(document).arrive(".commands-container ul", {existing: true, onceOnly: false}, function(elem) {
-        $(elem).append('<li><a id="lnkShowSnippets">{...}</a></li>');
-        $("#lnkShowSnippets").click(showSnippetsLibrary);
+        $(elem).append('<li><a class="lnkShowSnippets">{...}</a></li>');
+        $(elem).find("li a.lnkShowSnippets").click(showSnippetsLibrary);
     });
 
 
