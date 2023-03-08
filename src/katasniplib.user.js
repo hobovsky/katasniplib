@@ -19,9 +19,6 @@
 // @require     https://cdn.jsdelivr.net/npm/marked/marked.min.js
 // ==/UserScript==
 
-// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-// <script src=""></script>
-
 console.info("Tampermonkey script started");
 
 (function() {
@@ -57,16 +54,7 @@ ul.snippetsList {
         console.info("ERROR!", "error");
     }
 
-    let snippetsLib = GM_getValue("katasnippets.library");
-    if(!snippetsLib) {
-        console.info("Loading empty library");
-        snippetsLib = { snippets: [], tags: [] };
-        GM_setValue("katasnippets.library", snippetsLib);
-    }
-
-
-
-    function buildSnippetsDialog(lang, editor) {
+    function buildSnippetsDialog(lang, library) {
 
         jQuery('#glotSnippetsDialog').remove();
 
@@ -155,7 +143,7 @@ ul.snippetsList {
 
         let { langId, langName } = lang;
         let idx=0;
-        for(let snippet of snippetsLib.snippets) {
+        for(let snippet of library.snippets) {
             snippet.id = idx++;
             if(langId && snippet.languages.every(l => l != "all" && l != langId))
                 continue;
@@ -193,14 +181,42 @@ ul.snippetsList {
         return { langId, langName };
     }
 
-    function getSnippetsDialog() {
+    function getSnippetsDialog(library) {
         let lang = getActiveLang();
-        let dialog = buildSnippetsDialog(lang);
+        let dialog = buildSnippetsDialog(lang, library);
         return dialog;
     }
 
     function showSnippetsLibrary() {
-        getSnippetsDialog().dialog("open");
+
+        let go = library => getSnippetsDialog(library).dialog("open");
+
+        let snippetsLib = GM_getValue("katasnippets.library");
+        if(snippetsLib) {
+            go(snippetsLib);
+        } else {
+            console.info("Loading empty library");
+
+            function libraryDownloaded(resp) {
+                if (resp.readyState !== 4) return;
+                const snippetsLib = resp.response.data;
+                GM_setValue("katasnippets.library", snippetsLib);
+                go(snippetsLib);
+            }
+
+            let url = `https://raw.githubusercontent.com/hobovsky/katasniplib/main/content/library.json`;
+            let opts = {
+                method: "GET",
+                url: url,
+                onreadystatechange: libraryDownloaded,
+                onabort: fetchAborted,
+                onerror: fetchError,
+                context: {},
+                responseType: "json"
+            };
+            GM_xmlhttpRequest(opts);
+            console.info(`Fetching snippet ${snippet} from url [${url}]`, "info");
+        }
     }
 
     $(document).arrive(".commands-container ul", {existing: true, onceOnly: false}, function(elem) {
