@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         Kata Snippets
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/hobovsky/katasniplib/
 // @version      0.1
 // @description  Insert snippets into kata
-// @author       You
+// @author       hobovsky
 // @match        https://www.codewars.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=codewars.com
+// @updateURL https://github.com/hobovsky/katasniplib/raw/main/src/katasniplib.user.js
+// @downloadURL https://github.com/hobovsky/katasniplib/raw/main/src/katasniplib.user.js
 // @grant   GM_addStyle
 // @grant   GM_getValue
 // @grant   GM_setValue
