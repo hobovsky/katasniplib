@@ -6,19 +6,19 @@
 // @author       hobovsky
 // @match        https://www.codewars.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=codewars.com
-// @updateURL https://github.com/hobovsky/katasniplib/raw/main/src/katasniplib.user.js
-// @downloadURL https://github.com/hobovsky/katasniplib/raw/main/src/katasniplib.user.js
-// @grant   GM_addStyle
-// @grant   GM_getValue
-// @grant   GM_setValue
-// @grant   GM_xmlhttpRequest
-// @connect raw.githubusercontent.com
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js
-// @require     http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js
-// @require     https://greasyfork.org/scripts/21927-arrive-js/code/arrivejs.js?version=198809
-// @require     https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
-// @require     https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/ocaml.min.js
-// @require     https://cdn.jsdelivr.net/npm/marked/marked.min.js
+// @updateURL    https://github.com/hobovsky/katasniplib/raw/main/src/katasniplib.user.js
+// @downloadURL  https://github.com/hobovsky/katasniplib/raw/main/src/katasniplib.user.js
+// @grant        GM_addStyle
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_xmlhttpRequest
+// @connect      raw.githubusercontent.com
+// @require      http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js
+// @require      http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js
+// @require      https://greasyfork.org/scripts/21927-arrive-js/code/arrivejs.js?version=198809
+// @require      https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
+// @require      https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/ocaml.min.js
+// @require      https://cdn.jsdelivr.net/npm/marked/marked.min.js
 // ==/UserScript==
 
 console.info("Tampermonkey script started");
