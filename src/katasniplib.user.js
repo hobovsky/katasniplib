@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kata Snippets
 // @namespace    https://github.com/hobovsky/katasniplib/
-// @version      0.1
+// @version      0.3
 // @description  Insert snippets into kata
 // @author       hobovsky
 // @match        https://www.codewars.com/*
@@ -193,15 +193,15 @@ ul.snippetsList {
 
         let go = library => getSnippetsDialog(library).dialog("open");
 
-        let snippetsLib = GM_getValue("katasnippets.library");
+        let snippetsLib = GM_getValue("katasnippets.library") && false; // TODO: store the library locally
         if(snippetsLib) {
             go(snippetsLib);
         } else {
-            console.info("Loading empty library");
+            console.info("Loading snippets library...");
 
             function libraryDownloaded(resp) {
                 if (resp.readyState !== 4) return;
-                const snippetsLib = resp.response.data;
+                const snippetsLib = resp.response;
                 GM_setValue("katasnippets.library", snippetsLib);
                 go(snippetsLib);
             }
@@ -217,7 +217,7 @@ ul.snippetsList {
                 responseType: "json"
             };
             GM_xmlhttpRequest(opts);
-            console.info(`Fetching snippet ${snippet} from url [${url}]`, "info");
+            console.info(`Fetching snippet library from url [${url}]`, "info");
         }
     }
 
