@@ -22,7 +22,7 @@
             "kataSnippets": [
                 "description"
             ],
-            "content": "Inline formula: `` `$ x^2 $` ``<br/>\n\nMath block:\n````text\n```math\nx^2\n```\n````\nFor more information see Codewars documentation for [Math Typesetting](https://docs.codewars.com/references/markdown/extensions#math-typesetting).",
+            "contentUrl": "snippet_0002.md",
             "tags": [
                 "katex"
             ]
@@ -39,7 +39,7 @@
                 "sampleTests",
                 "submissionTests"
             ],
-            "content": "Import a specific name:\n```python\nfrom preloaded import something\n```\nImport everything:\n```python\nfrom preloaded import *\n```",
+            "contentUrl": "snippet_0003.md",
             "tags": []
         },
         {
@@ -51,7 +51,7 @@
             "kataSnippets": [
                 "solutionSetup"
             ],
-            "content": "```python\ndef mysolution(input_args):\n  pass\n```",
+            "contentUrl": "snippet_0004.md",
             "tags": []
         },
         {
@@ -64,7 +64,7 @@
                 "sampleTests",
                 "submissionTests"
             ],
-            "content": "```python\n# equality with a custom failure message\ntest.assert_equals(actual, expected, f'Incorrect answer for input={input}')\n\n# equality with tolerance for floating point values\ntest.assert_approx_equals(actual, expected, f'Incorrect answer for input={input}')\n```",
+            "contentUrl": "snippet_0005.md",
             "tags": []
         },
         {
