@@ -194,9 +194,8 @@ ul.snippetsList {
     }
 
 
-    function getSnippetsDialog(library, editor) {
-        let lang = getActiveLang();
-
+    function getSnippetsDialog(library, editor, lang) {
+        
         if(lang.langId == currentDialog?.lang?.langId) {
             console.info(`Reusing existing dialog for ${lang.langId}`);
 
@@ -223,7 +222,8 @@ ul.snippetsList {
     function showSnippetsLibrary(e) {
 
         let editor = e.data.editor;
-        let go = library => getSnippetsDialog(library, editor).dialog("open");
+        let lang = getActiveLang();
+        let go = library => getSnippetsDialog(library, editor, lang).dialog("open");
 
         let snippetsLib = false && GM_getValue("katasnippets.library"); // TODO: store the library locally
         if(snippetsLib) {
@@ -273,7 +273,7 @@ ul.snippetsList {
 
         let editor = getEditor(elem) || "submissionTests";
         $(elem).append('<li><a class="lnkShowSnippets">{...}</a></li>');
-        $(elem).find("li a.lnkShowSnippets").on("click", { editor: editor }, showSnippetsLibrary);
+        $(elem).find("li a.lnkShowSnippets").on("click", { editor }, showSnippetsLibrary);
     });
 
 
