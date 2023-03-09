@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kata Snippets
 // @namespace    https://github.com/hobovsky/katasniplib/
-// @version      0.5
+// @version      0.6
 // @description  Insert snippets into kata
 // @author       hobovsky
 // @match        https://www.codewars.com/*
@@ -11,6 +11,8 @@
 // @grant        GM_addStyle
 // @grant        GM_getValue
 // @grant        GM_setValue
+// @grant        GM_deleteValue
+// @grant        GM_listValues
 // @grant        GM_xmlhttpRequest
 // @connect      raw.githubusercontent.com
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js
@@ -48,6 +50,17 @@ ul.snippetsList {
 }
 `;
     GM_addStyle(css);
+
+    const STORAGE_VALUE_KEY_LIBRARY = "katasnippets.library";
+    const STORAGE_VALUE_KEY_SNIPPET = "katasnippets.snippet.";
+    function clearLocalStorageCache() {
+        GM_deleteValue(STORAGE_VALUE_KEY_LIBRARY);
+        for(let key of GM_listValues()) {
+            if(key.startsWith(STORAGE_VALUE_KEY_SNIPPET)) {
+                GM_deleteValue(key);
+            }
+        }
+    }
 
     function fetchAborted() {
         console.info("Fetch aborted.", "info");
@@ -101,6 +114,10 @@ ul.snippetsList {
             function snippetDownloaded(resp) {
                 if (resp.readyState !== 4) return;
                 const markdown = resp.response;
+                let snippet = resp.context;
+                snippet.content = markdown;
+                console.info(`Caching snippet from url [${url}]`, "info");
+                GM_setValue(STORAGE_VALUE_KEY_SNIPPET + snippet.contentUrl, snippet.content);
                 presentSnippet(markdown);
             }
 
@@ -124,7 +141,13 @@ ul.snippetsList {
             if(markdown) {
                 presentSnippet(markdown);
             } else {
-                fetchSnippet(e.data.snippet);
+                let cachedContent = GM_getValue(STORAGE_VALUE_KEY_SNIPPET + e.data.snippet.contentUrl, null);
+                if(cachedContent?.length) {
+                    console.info(`Reusing cached snippet for contentUrl=${e.data.snippet.contentUrl}`);
+                    presentSnippet(cachedContent);
+                } else {
+                    fetchSnippet(e.data.snippet);
+                }
             }
         }
 
@@ -173,6 +196,13 @@ ul.snippetsList {
             title: "Snippets library for " + langName,
             buttons: [
                 {
+                    text: "Clear cache",
+                    click: function() {
+                        clearLocalStorageCache();
+                        jQuery(this).dialog("close");
+                    }
+                },
+                {
                     text: "OK",
                     click: function() { jQuery(this).dialog("close"); }
                 }
@@ -195,7 +225,7 @@ ul.snippetsList {
 
 
     function getSnippetsDialog(library, editor, lang) {
-        
+
         if(lang.langId == currentDialog?.lang?.langId) {
             console.info(`Reusing existing dialog for ${lang.langId}`);
 
@@ -225,7 +255,7 @@ ul.snippetsList {
         let lang = getActiveLang();
         let go = library => getSnippetsDialog(library, editor, lang).dialog("open");
 
-        let snippetsLib = false && GM_getValue("katasnippets.library"); // TODO: store the library locally
+        let snippetsLib = GM_getValue(STORAGE_VALUE_KEY_LIBRARY, null);
         if(snippetsLib) {
             go(snippetsLib);
         } else {
@@ -234,7 +264,7 @@ ul.snippetsList {
             function libraryDownloaded(resp) {
                 if (resp.readyState !== 4) return;
                 const snippetsLib = resp.response;
-                GM_setValue("katasnippets.library", snippetsLib);
+                GM_setValue(STORAGE_VALUE_KEY_LIBRARY, snippetsLib);
                 go(snippetsLib);
             }
 
