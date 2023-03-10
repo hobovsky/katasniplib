@@ -152,6 +152,30 @@
             "tags": []
         },
         {
+            "title": "Sample tests suite",
+            "summary": "A suite of sample tests with a couple of test cases",
+            "languages": [
+                "swift"
+            ],
+            "kataSnippets": [
+                "sampleTests"
+            ],
+            "contentUrl": "snippet_0013.md",
+            "tags": ["test suite"]
+        },
+        {
+            "title": "Submission tests",
+            "summary": "Example suite of submission tests for Swift",
+            "languages": [
+                "swift"
+            ],
+            "kataSnippets": [
+                "submissionTests"
+            ],
+            "contentUrl": "snippet_0014.md",
+            "tags": ["test suite"]
+        },
+        {
             "title": "",
             "summary": "",
             "languages": [
@@ -160,7 +184,7 @@
             "kataSnippets": [
                 ""
             ],
-            "content": "",
+            "contentUrl": "snippet_00xx.md",
             "tags": []
         }
     ],
