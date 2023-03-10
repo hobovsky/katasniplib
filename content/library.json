@@ -11,9 +11,9 @@
             },
             "translations": [
                 {
-                    "languages": [
+                    "language": 
                         "python"
-                    ],
+                    ,
                     "contentUrl": "snippet_0004.md"
                 },
                 {
@@ -29,9 +29,9 @@
         {
             "title": "Required imports",
             "summary": "",
-            "languages": [
+            "language": 
                 "python"
-            ],
+            ,
             "kataSnippets": [
                 "sampleTests",
                 "submissionTests"

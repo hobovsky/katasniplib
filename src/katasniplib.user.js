@@ -182,6 +182,13 @@ ul.snippetsList {
                 return translation;
             }
 
+            function isForLanguage(langId, snippet) {
+                return !langId ||
+                        snippet.language === langId ||
+                        snippet.language === "all" ||
+                        snippet.languages?.some(l => l == "all" || l == langId);
+            }
+
             let idx=0;
             let snippets = [];
             for(let polyglot of library.polyglots ?? []) {
@@ -189,7 +196,7 @@ ul.snippetsList {
                 for(let translation of polyglot.translations ?? []) {
 
                     idx++;
-                    if(langId && translation.languages.every(l => l != "all" && l != langId))
+                    if(!isForLanguage(langId, translation))
                         continue;
 
                     let snippet = merge(stencil, translation);
@@ -200,7 +207,7 @@ ul.snippetsList {
 
             for(let snippet of library.snippets ?? []) {
                 snippet.id = idx++;
-                if(langId && snippet.languages.every(l => l != "all" && l != langId))
+                if(!isForLanguage(langId, snippet))
                     continue;
                 snippet.tags = snippet.tags ? new Set([...snippet.tags]) : notags;
                 snippets.push(snippet);
