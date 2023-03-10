@@ -1,4 +1,30 @@
 {
+    "polyglots": [
+        {
+            "stencil": {
+                "title": "Solution setup",
+                "summary": "",
+                "kataSnippets": [
+                    "solutionSetup"
+                ],
+                "tags": []
+            },
+            "translations": [
+                {
+                    "languages": [
+                        "python"
+                    ],
+                    "contentUrl": "snippet_0004.md"
+                },
+                {
+                    "languages": [
+                        "rust"
+                    ],
+                    "content": "`todo!()`"
+                }
+            ]
+        }
+    ],
     "snippets": [
         {
             "title": "Required imports",
@@ -40,18 +66,6 @@
                 "submissionTests"
             ],
             "contentUrl": "snippet_0003.md",
-            "tags": []
-        },
-        {
-            "title": "Solution setup",
-            "summary": "",
-            "languages": [
-                "python"
-            ],
-            "kataSnippets": [
-                "solutionSetup"
-            ],
-            "contentUrl": "snippet_0004.md",
             "tags": []
         },
         {
