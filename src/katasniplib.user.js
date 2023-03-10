@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kata Snippets
 // @namespace    https://github.com/hobovsky/katasniplib/
-// @version      0.6
+// @version      0.7
 // @description  Insert snippets into kata
 // @author       hobovsky
 // @match        https://www.codewars.com/*
@@ -167,11 +167,57 @@ ul.snippetsList {
         }
 
         let { langId, langName } = lang;
-        let idx=0;
-        for(let snippet of library.snippets) {
-            snippet.id = idx++;
-            if(langId && snippet.languages.every(l => l != "all" && l != langId))
-                continue;
+
+        function loadSnippets(library, langId) {
+
+            let notags = new Set();
+
+            function merge(stencil, translation) {
+                if(!translation.title       ) translation.title        = stencil.title;
+                if(!translation.summary     ) translation.summary      = stencil.summary;
+                if(!translation.kataSnippets) translation.kataSnippets = stencil.kataSnippets;
+                if(!translation.content     ) translation.content      = stencil.content;
+                if(!translation.contentUrl  ) translation.contentUrl   = stencil.contentUrl;
+                translation.tags = (translation.tags || stencil.tags) ? new Set([...translation.tags ?? [], ...stencil.tags ?? []]) : notags;
+                return translation;
+            }
+
+            function isForLanguage(langId, snippet) {
+                return !langId ||
+                        snippet.language === langId ||
+                        snippet.language === "all" ||
+                        snippet.languages?.some(l => l == "all" || l == langId);
+            }
+
+            let idx=0;
+            let snippets = [];
+            for(let polyglot of library.polyglots ?? []) {
+                let stencil = polyglot.stencil ?? {};
+                for(let translation of polyglot.translations ?? []) {
+
+                    idx++;
+                    if(!isForLanguage(langId, translation))
+                        continue;
+
+                    let snippet = merge(stencil, translation);
+                    snippet.id = idx;
+                    snippets.push(snippet);
+                }
+            }
+
+            for(let snippet of library.snippets ?? []) {
+                snippet.id = idx++;
+                if(!isForLanguage(langId, snippet))
+                    continue;
+                snippet.tags = snippet.tags ? new Set([...snippet.tags]) : notags;
+                snippets.push(snippet);
+            }
+
+            return snippets;
+        }
+
+
+        for(let snippet of loadSnippets(library, langId)) {
             for(let kataSnippet of snippet.kataSnippets) {
                 listSnippet(snippet, kataSnippet);
             }
