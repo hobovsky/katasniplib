@@ -11,16 +11,55 @@
             },
             "translations": [
                 {
-                    "language": 
-                        "python"
-                    ,
-                    "contentUrl": "snippet_0004.md"
+                    "language": "python",
+                    "contentUrl": "poly_0001/snippet_0004.md"
                 },
                 {
-                    "languages": [
-                        "rust"
-                    ],
-                    "content": "`todo!()`"
+                    "language": "rust",
+                    "contentUrl": "poly_0001/snippet_0002.md"
+                }
+            ]
+        },
+        {
+            "stencil": {
+                "title": "Custom assertion messages",
+                "summary": "",
+                "kataSnippets": [
+                    "sampleTests",
+                    "submissionTests"
+                ],
+                "tags": []
+            },
+            "translations": [
+                {
+                    "language": "cpp",
+                    "contentUrl": "poly_0002/snippet_0007.md"
+                },
+                {
+                    "language": "rust",
+                    "contentUrl": "poly_0002/snippet_0012.md"
+                },
+                {
+                    "language": "ocaml",
+                    "contentUrl": "poly_0002/snippet_0001.md"
+                }
+            ]
+        },
+        {
+            "stencil": {
+                "title": "Sample tests suite",
+                "summary": "A suite of sample tests with a couple of test cases",
+                "kataSnippets": [
+                    "sampleTests"
+                ],
+                "tags": [
+                    "test suite"
+                ]
+            },
+            "translations": [
+                {
+                    "language": "swift",
+                    "contentUrl": "poly_0003/snippet_0013.md"
                 }
             ]
         }
@@ -29,9 +68,7 @@
         {
             "title": "Required imports",
             "summary": "",
-            "language": 
-                "python"
-            ,
+            "language": "python",
             "kataSnippets": [
                 "sampleTests",
                 "submissionTests"
@@ -42,9 +79,7 @@
         {
             "title": "KaTeX",
             "summary": "Displays KaTeX formulas and math typsetting",
-            "languages": [
-                "all"
-            ],
+            "language": "all",
             "kataSnippets": [
                 "description"
             ],
@@ -56,9 +91,7 @@
         {
             "title": "Import preloaded code",
             "summary": "",
-            "languages": [
-                "python"
-            ],
+            "language": "python",
             "kataSnippets": [
                 "solutionSetup",
                 "completeSolution",
@@ -71,9 +104,7 @@
         {
             "title": "Example assertions",
             "summary": "",
-            "languages": [
-                "python"
-            ],
+            "language": "python",
             "kataSnippets": [
                 "sampleTests",
                 "submissionTests"
@@ -84,33 +115,18 @@
         {
             "title": "Informative assertions",
             "summary": "",
-            "languages": [
-                "ocaml"
-            ],
+            "language": "ocaml",
             "kataSnippets": [
-                "sampleTests", "submissionTests"
+                "sampleTests",
+                "submissionTests"
             ],
             "contentUrl": "snippet_0006.md",
             "tags": []
         },
         {
-            "title": "Custom assertion messages",
-            "summary": "",
-            "languages": [
-                "cpp"
-            ],
-            "kataSnippets": [
-                "sampleTests", "submissionTests"
-            ],
-            "contentUrl": "snippet_0007.md",
-            "tags": []
-        },
-        {
             "title": "Example test suite",
             "summary": "",
-            "languages": [
-                "python"
-            ],
+            "language": "python",
             "kataSnippets": [
                 "submissionTests"
             ],
@@ -120,74 +136,51 @@
         {
             "title": "Custom stringizers",
             "summary": "",
-            "languages": [
-                "cpp"
-            ],
+            "language": "cpp",
             "kataSnippets": [
-                "sampleTests", "submissionTests", "preloaded"
+                "sampleTests",
+                "submissionTests",
+                "preloaded"
             ],
             "contentUrl": "snippet_0009.md",
-            "tags": ["snowhouse"]
+            "tags": [
+                "snowhouse"
+            ]
         },
         {
             "title": "truncateThreshold",
             "summary": "",
-            "languages": [
-                "javascript"
-            ],
+            "language": "javascript",
             "kataSnippets": [
-                "sampleTests", "submissionTests"
+                "sampleTests",
+                "submissionTests"
             ],
             "contentUrl": "snippet_0010.md",
-            "tags": []
+            "tags": ["chai"]
         },
         {
             "title": "Printers for assertions",
             "summary": "",
-            "languages": [
-                "ocaml"
-            ],
+            "language": "ocaml",
             "kataSnippets": [
-                "sampleTests", "submissionTests", "preloaded"
+                "sampleTests",
+                "submissionTests",
+                "preloaded"
             ],
             "contentUrl": "snippet_0011.md",
             "tags": []
         },
         {
-            "title": "Custom assertion messages",
-            "summary": "",
-            "languages": [
-                "rust"
-            ],
-            "kataSnippets": [
-                "sampleTests", "submissionTests"
-            ],
-            "contentUrl": "snippet_00012.md",
-            "tags": []
-        },
-        {
-            "title": "Sample tests suite",
-            "summary": "A suite of sample tests with a couple of test cases",
-            "languages": [
-                "swift"
-            ],
-            "kataSnippets": [
-                "sampleTests"
-            ],
-            "contentUrl": "snippet_0013.md",
-            "tags": ["test suite"]
-        },
-        {
             "title": "Submission tests",
             "summary": "Example suite of submission tests for Swift",
-            "languages": [
-                "swift"
-            ],
+            "language": "swift",
             "kataSnippets": [
                 "submissionTests"
             ],
             "contentUrl": "snippet_0014.md",
-            "tags": ["test suite"]
+            "tags": [
+                "test suite"
+            ]
         },
         {
             "title": "",

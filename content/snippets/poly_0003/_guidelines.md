@@ -1,0 +1,1 @@
+Snippets in this polyglot should present a complete suite of sample tests. A note in a snippet can contain links to external resources related to usage of a specific testing framework. It's recommended to present usage of more than a single test case.
