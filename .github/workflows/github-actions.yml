@@ -1,0 +1,15 @@
+name: katasniplib workflow
+run-name: ${{ github.actor }} pushed changes
+on: [push]
+jobs:
+  Validate-JSON-Schema:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event by ${{ github.actor }}."
+      - run: echo "Installing Ajv"
+      - run: npm install -g ajv-cli
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Run validator
+        run: ajv test -s resources/library.schema.json -d content/library.json --valid
+      - run: echo "This job's status is ${{ job.status }}."
