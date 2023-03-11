@@ -62,6 +62,24 @@
                     "contentUrl": "poly_0003/snippet_0013.md"
                 }
             ]
+        },
+        {
+            "stencil": {
+                "title": "Submission tests",
+                "summary": "Example suite of submission tests",
+                "kataSnippets": [
+                    "submissionTests"
+                ],
+                "tags": [
+                    "test suite"
+                ]
+            },
+            "translations": [
+                {
+                    "language": "swift",
+                    "contentUrl": "poly_0004/snippet_0014.md"
+                }
+            ]
         }
     ],
     "snippets": [
@@ -156,7 +174,9 @@
                 "submissionTests"
             ],
             "contentUrl": "snippet_0010.md",
-            "tags": ["chai"]
+            "tags": [
+                "chai"
+            ]
         },
         {
             "title": "Printers for assertions",
@@ -169,18 +189,6 @@
             ],
             "contentUrl": "snippet_0011.md",
             "tags": []
-        },
-        {
-            "title": "Submission tests",
-            "summary": "Example suite of submission tests for Swift",
-            "language": "swift",
-            "kataSnippets": [
-                "submissionTests"
-            ],
-            "contentUrl": "snippet_0014.md",
-            "tags": [
-                "test suite"
-            ]
         },
         {
             "title": "",
