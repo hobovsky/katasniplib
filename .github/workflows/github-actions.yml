@@ -1,10 +1,6 @@
 name: katasniplib workflow
 run-name: ${{ github.actor }} pushed changes
-on:
-  push:
-    paths:
-      - 'content/library.json'
-      - 'resources/library.schema.json'
+on: [push]
 jobs:
   Validate-JSON-Schema:
     runs-on: ubuntu-latest
