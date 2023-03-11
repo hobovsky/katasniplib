@@ -1,5 +1,3 @@
-# Hi
-
 ```swift
 import XCTest
 

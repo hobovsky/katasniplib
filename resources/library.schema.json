@@ -1,0 +1,223 @@
+{
+  "$id": "https://example.com/product.schema.json",
+  "title": "katasniplib",
+  "description": "Library of snippets for Codewars kata",
+  "type": "object",
+  "properties": {
+    "polyglots": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/polyglot"
+      }
+    },
+    "snippets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/snippet"
+      }
+    },
+    "tags": {
+      "description": "Metadata of tags. Currently not used.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/tag"
+      }
+    }
+  },
+  "required": [
+    "polyglots", "snippets", "tags"
+  ],
+  "$defs": {
+    "polyglot": {
+      "description": "Groups snippets which present an idea which can be closely translated into multiple languages.",
+      "type": "object",
+      "properties": {
+        "stencil": {
+          "$ref": "#/$defs/stencil"
+        },
+        "translations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/translation"
+          }
+        }
+      },
+      "required": ["stencil"]
+    },
+    "stencil": {
+      "description": "A template which provides fallback values for all transaltions from this polyglot.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "kataSnippets": {
+          "$ref": "#/$defs/listOfKataSnippets"
+        },
+        "content": {
+          "$ref": "#/$defs/markdown"
+        },
+        "contentUrl": {
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/$defs/listOfTags"
+        }
+      },
+      "allOf": [
+        { "required": ["title", "kataSnippets"] },
+        {
+          "not": {
+            "anyOf": [
+              { "required": ["language"] },
+              { "required": ["languages"] }
+            ]
+          }
+        },
+        {
+          "not": { "required": ["content", "contentUrl"]}
+        }
+      ]
+    },
+    "translation": {
+      "description": "Translation of a polglot into a specific language. All ommited properties will be inherited from the stencil of the enclosing polyglot.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "languages": {
+          "$ref": "#/$defs/listOfKataLanguages"
+        },
+        "kataSnippets": {
+          "$ref": "#/$defs/listOfKataSnippets"
+        },
+        "content": {
+          "$ref": "#/$defs/markdown"
+        },
+        "contentUrl": {
+          "type": "string"
+        },
+        "tags": {
+          "description": "Set of tags of a translation is merged with tags of the stencil of containing polyglot.",
+          "$ref": "#/$defs/listOfTags"
+        }
+      },
+      "allOf": [
+        {
+          "oneOf": [
+            { "required": ["language"] },
+            { "required": ["languages"] }
+          ]
+        },
+        {
+          "oneOf": [
+            {
+              "required": ["content"],
+              "not": { "required": ["contentUrl"]}
+            },
+            {
+              "required": ["contentUrl"],
+              "not": { "required": ["content"]}
+            }
+          ]
+        }
+      ]
+    },
+    "snippet": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "languages": {
+          "$ref": "#/$defs/listOfKataLanguages"
+        },
+        "kataSnippets": {
+          "$ref": "#/$defs/listOfKataSnippets"
+        },
+        "content": {
+          "$ref": "#/$defs/markdown"
+        },
+        "contentUrl": {
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/$defs/listOfTags"
+        }
+      },
+      "allOf": [
+        {
+          "oneOf": [
+            { "required": ["language"] },
+            { "required": ["languages"] }
+          ]
+        },
+        {
+          "oneOf": [
+            {
+              "required": ["content"],
+              "not": { "required": ["contentUrl"]}
+            },
+            {
+              "required": ["contentUrl"],
+              "not": { "required": ["content"]}
+            }
+          ]
+        }
+      ]
+    },
+    "tag": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "listOfKataSnippets": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items" : {
+        "enum": ["preloaded", "description", "completeSolution", "solutionSetup", "sampleTests", "submissionTests"]
+      }
+    },
+    "listOfTags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "listOfKataLanguages": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "markdown": {
+      "type": "string"
+    }
+  }
+}
