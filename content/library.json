@@ -42,6 +42,10 @@
                 {
                     "language": "ocaml",
                     "contentUrl": "poly_0002/snippet_0001.md"
+                },
+                {
+                    "languages": ["c", "nasm"],
+                    "contentUrl": "poly_0002/snippet_0002.md"
                 }
             ]
         },
