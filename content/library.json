@@ -28,7 +28,7 @@
                     "sampleTests",
                     "submissionTests"
                 ],
-                "tags": []
+                "tags": ["assertions"]
             },
             "translations": [
                 {
@@ -89,7 +89,7 @@
                     "sampleTests"
                 ],
                 "tags": [
-                    "test suite"
+                    "organisation"
                 ]
             },
             "translations": [
@@ -164,7 +164,7 @@
                 "submissionTests"
             ],
             "contentUrl": "snippet_0005.md",
-            "tags": []
+            "tags": ["assertions"]
         },
         {
             "title": "Informative assertions",
@@ -175,7 +175,7 @@
                 "submissionTests"
             ],
             "contentUrl": "snippet_0006.md",
-            "tags": []
+            "tags": ["assertions"]
         },
         {
             "title": "Example test suite",
@@ -185,7 +185,7 @@
                 "submissionTests"
             ],
             "contentUrl": "snippet_0008.md",
-            "tags": []
+            "tags": ["organisation"]
         },
         {
             "title": "Custom stringizers",
@@ -198,7 +198,7 @@
             ],
             "contentUrl": "snippet_0009.md",
             "tags": [
-                "snowhouse"
+                "snowhouse", "output"
             ]
         },
         {
@@ -211,7 +211,7 @@
             ],
             "contentUrl": "snippet_0010.md",
             "tags": [
-                "chai"
+                "chai", "output"
             ]
         },
         {
@@ -224,7 +224,7 @@
                 "preloaded"
             ],
             "contentUrl": "snippet_0011.md",
-            "tags": []
+            "tags": ["output"]
         },
         {
             "title": "",
