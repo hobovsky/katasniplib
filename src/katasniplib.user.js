@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kata Snippets
 // @namespace    https://github.com/hobovsky/katasniplib/
-// @version      0.7
+// @version      0.8
 // @description  Insert snippets into kata
 // @author       hobovsky
 // @match        https://www.codewars.com/*
@@ -21,6 +21,7 @@
 // @require      https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/ocaml.min.js
 // @require      https://cdn.jsdelivr.net/npm/marked/marked.min.js
+// @require      https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js
 // ==/UserScript==
 
 console.info("Tampermonkey script started");
@@ -33,6 +34,7 @@ console.info("Tampermonkey script started");
     $("head").append(`
         <link href="${JQUERYUI_CSS_URL}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css" type="text/css">
      `);
 
     let css = `
@@ -53,6 +55,8 @@ ul.snippetsList {
 
     const STORAGE_VALUE_KEY_LIBRARY = "katasnippets.library";
     const STORAGE_VALUE_KEY_SNIPPET = "katasnippets.snippet.";
+    // const BRANCH = "feature/tags";
+    const BRANCH = "main";
     function clearLocalStorageCache() {
         GM_deleteValue(STORAGE_VALUE_KEY_LIBRARY);
         for(let key of GM_listValues()) {
@@ -76,26 +80,28 @@ ul.snippetsList {
         jQuery('body').append(`
             <div id='glotSnippetsDialog' title='Snippets Library for Python'>
                 <div class="row">
-                <div class="column">
-                <div id='accordion'>
-                    <h3>Sample tests</h3>
-                    <div><ul class="snippetsList" id="listSampleTestsSnippets"/></div>
-                    <h3>Submission tests</h3>
-                    <div><ul class="snippetsList" id="listSubmissionTestsSnippets"/></div>
-                    <h3>Complete solution</h3>
-                    <div><ul class="snippetsList" id="listCompleteSolutionSnippets"/></div>
-                    <h3>Solution setup</h3>
-                    <div><ul class="snippetsList" id="listSolutionSetupSnippets"/></div>
-                    <h3>Preloaded code</h3>
-                    <div><ul class="snippetsList" id="listPreloadedSnippets"/></div>
-                    <h3>Description</h3>
-                    <div><ul class="snippetsList" id="listDescriptionSnippets"/></div>
-                </div>
-                </div>
-                <div class="column" style="padding: 10px">
-                  <div id="sniplibcontent" class="markdown prose">
-                  </div>
-                </div>
+                    <div class="column">
+                        <div id='accordion'>
+                            <h3>Sample tests</h3>
+                            <div><ul class="snippetsList" id="listSampleTestsSnippets"/></div>
+                            <h3>Submission tests</h3>
+                            <div><ul class="snippetsList" id="listSubmissionTestsSnippets"/></div>
+                            <h3>Complete solution</h3>
+                            <div><ul class="snippetsList" id="listCompleteSolutionSnippets"/></div>
+                            <h3>Solution setup</h3>
+                            <div><ul class="snippetsList" id="listSolutionSetupSnippets"/></div>
+                            <h3>Preloaded code</h3>
+                            <div><ul class="snippetsList" id="listPreloadedSnippets"/></div>
+                            <h3>Description</h3>
+                            <div><ul class="snippetsList" id="listDescriptionSnippets"/></div>
+                        </div>
+                        <label for="tags" style="margin-top: 15px">Show only snippets tagged as:</label>
+                        <select multiple id="tags">
+                        </select>
+                    </div>
+                    <div class="column" style="padding: 10px">
+                        <div id="sniplibcontent" class="markdown prose"/>
+                    </div>
                 </div>
             </div>`);
 
@@ -121,7 +127,7 @@ ul.snippetsList {
                 presentSnippet(markdown);
             }
 
-            let url = `https://raw.githubusercontent.com/hobovsky/katasniplib/main/content/snippets/${snippet.contentUrl}`;
+            let url = `https://raw.githubusercontent.com/hobovsky/katasniplib/${BRANCH}/content/snippets/${snippet.contentUrl}`;
             let opts = {
                 method: "GET",
                 url: url,
@@ -151,7 +157,6 @@ ul.snippetsList {
             }
         }
 
-
         function presentSnippet(markdown) {
             document.getElementById('sniplibcontent').innerHTML =
                 marked.parse(markdown);
@@ -162,7 +167,7 @@ ul.snippetsList {
         }
 
         function listSnippet(snippet, sectionName) {
-            $(`#${listIds[sectionName]}`).append(`<li><a data-snippetId="${snippet.id}">${snippet.title}</a></li>`);
+            $(`#${listIds[sectionName]}`).append(`<li data-snippet_id="${snippet.id}"><a data-snippetId="${snippet.id}">${snippet.title}</a></li>`);
             $(`#${listIds[sectionName]}`).find('li a').last().on("click", {snippet: snippet}, showSnippetContent);
         }
 
@@ -209,7 +214,7 @@ ul.snippetsList {
                 snippet.id = idx++;
                 if(!isForLanguage(langId, snippet))
                     continue;
-                snippet.tags = snippet.tags ? new Set([...snippet.tags]) : notags;
+                snippet.tags = snippet.tags ? new Set(snippet.tags) : notags;
                 snippets.push(snippet);
             }
 
@@ -217,11 +222,19 @@ ul.snippetsList {
         }
 
 
-        for(let snippet of loadSnippets(library, langId)) {
+        let allTags = new Set();
+        let loadedSnippets = loadSnippets(library, langId);
+        for(let snippet of loadedSnippets) {
             for(let kataSnippet of snippet.kataSnippets) {
                 listSnippet(snippet, kataSnippet);
             }
+            for(let tag of snippet.tags ?? []) {
+                allTags.add({tag});
+            }
         }
+
+        let loadedSnippetsById = new Map();
+        for (let s of loadedSnippets) loadedSnippetsById.set(s.id, s);
 
         const idxs = {
             "sampleTests":      0,
@@ -232,6 +245,39 @@ ul.snippetsList {
             "description":      5
         };
         let accordion = jQuery("#accordion").accordion({active: idxs[editor] ?? 1 });
+
+
+        let tagsSelect = null;
+
+        function listTaggedSnippets() {
+            let selectedTags = new Set(tagsSelect[0].selectize.getValue());
+            let accordion = jQuery('#accordion');
+            accordion.find('li').each(
+                function(idx, elem) {
+                    elem = jQuery(elem);
+                    let relatedId = elem.data('snippet_id');
+                    if(relatedId === undefined) return;
+                    let relatedSnippet = loadedSnippetsById.get(relatedId);
+                    if(!relatedSnippet) return;
+
+                    if(selectedTags.size === 0 || [...relatedSnippet.tags].some(t => selectedTags.has(t))) {
+                        elem.show();
+                    } else {
+                        elem.hide();
+                    }
+                }
+            );
+            accordion.accordion( "refresh" );
+        }
+
+        tagsSelect = jQuery("#tags").selectize({
+            delimiter: " - ",
+            valueField: "tag",
+            labelField: "tag",
+            searchField: ["tag"],
+            options: [...allTags],
+            onBlur: listTaggedSnippets
+        });
 
         let dialog = jQuery('#glotSnippetsDialog').dialog({
             autoOpen: false,
@@ -314,7 +360,7 @@ ul.snippetsList {
                 go(snippetsLib);
             }
 
-            let url = `https://raw.githubusercontent.com/hobovsky/katasniplib/main/content/library.json`;
+            let url = `https://raw.githubusercontent.com/hobovsky/katasniplib/${BRANCH}/content/library.json`;
             let opts = {
                 method: "GET",
                 url: url,
