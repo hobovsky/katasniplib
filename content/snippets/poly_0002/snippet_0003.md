@@ -1,5 +1,5 @@
 ```csharp
-// Use C# string interpolation
+// Use string interpolation
 Assert.AreEqual(actual, expected, $"Incorrect answer for input = {input}");
 
 // Use NUnit formatting

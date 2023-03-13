@@ -40,7 +40,7 @@
                     "contentUrl": "poly_0002/snippet_0007.md"
                 },
                 {
-                    "language": "csharp",
+                    "languages": ["csharp", "fsharp"],
                     "contentUrl": "poly_0002/snippet_0003.md"
                 },
                 {
