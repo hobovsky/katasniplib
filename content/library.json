@@ -52,6 +52,10 @@
                     "contentUrl": "poly_0002/snippet_0005.md"
                 },
                 {
+                    "language": "julia",
+                    "contentUrl": "poly_0002/snippet_0006.md"
+                },
+                {
                     "language": "rust",
                     "contentUrl": "poly_0002/snippet_0012.md"
                 },
