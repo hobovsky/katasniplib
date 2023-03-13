@@ -227,6 +227,16 @@
             "tags": ["output"]
         },
         {
+            "title": "set_int_max_str_digits",
+            "summary": "Allow conversion of huge int values to strings in tests feedback in Python 3.11.",
+            "language": "python",
+            "kataSnippets": [
+                "submissionTests"
+            ],
+            "contentUrl": "snippet_0004.md",
+            "tags": []
+        },
+        {
             "title": "",
             "summary": "",
             "languages": [
