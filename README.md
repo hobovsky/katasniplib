@@ -1,6 +1,9 @@
 # katasniplib
 Userscript with a sketch of a library of code snippets useful when creating Codewars kata
 
+## Installation
+
+`katasniplib` works as a user script run by [Tampermonkey](https://www.tampermonkey.net). To use the script, you need to install the Tampermonkey extension in your browser, and then install the script in its scripts library. If Tampermonkey is already available in your browser, clicking on a [direct link](https://github.com/hobovsky/katasniplib/raw/main/src/katasniplib.user.js) to the script should also trigger installation.
 
 ## Contributing
 
