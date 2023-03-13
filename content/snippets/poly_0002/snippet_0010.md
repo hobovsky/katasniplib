@@ -1,4 +1,4 @@
-```c
+```ruby
 expect(actual).to eq(expected), "Incorrect answer for input = #{input}\n  Actual: '#{actual}'\nExpected: '#{expected}'"
 ```
 

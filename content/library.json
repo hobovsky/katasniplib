@@ -66,6 +66,10 @@
                 {
                     "language": "ocaml",
                     "contentUrl": "poly_0002/snippet_0001.md"
+                },
+                {
+                    "language": "rust",
+                    "contentUrl": "poly_0002/snippet_0011.md"
                 }
             ]
         },
