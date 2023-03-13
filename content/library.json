@@ -32,8 +32,28 @@
             },
             "translations": [
                 {
+                    "languages": ["c", "nasm"],
+                    "contentUrl": "poly_0002/snippet_0002.md"
+                },
+                {
                     "language": "cpp",
                     "contentUrl": "poly_0002/snippet_0007.md"
+                },
+                {
+                    "languages": ["csharp", "fsharp"],
+                    "contentUrl": "poly_0002/snippet_0003.md"
+                },
+                {
+                    "language": "java",
+                    "contentUrl": "poly_0002/snippet_0004.md"
+                },
+                {
+                    "language": "javascript",
+                    "contentUrl": "poly_0002/snippet_0005.md"
+                },
+                {
+                    "language": "julia",
+                    "contentUrl": "poly_0002/snippet_0006.md"
                 },
                 {
                     "language": "rust",
