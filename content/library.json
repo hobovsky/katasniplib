@@ -44,6 +44,10 @@
                     "contentUrl": "poly_0002/snippet_0003.md"
                 },
                 {
+                    "languages": ["java"],
+                    "contentUrl": "poly_0002/snippet_0004.md"
+                },
+                {
                     "language": "rust",
                     "contentUrl": "poly_0002/snippet_0012.md"
                 },
