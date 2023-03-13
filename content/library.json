@@ -56,12 +56,28 @@
                     "contentUrl": "poly_0002/snippet_0006.md"
                 },
                 {
+                    "language": "lua",
+                    "contentUrl": "poly_0002/snippet_0008.md"
+                },
+                {
                     "language": "rust",
                     "contentUrl": "poly_0002/snippet_0012.md"
                 },
                 {
                     "language": "ocaml",
                     "contentUrl": "poly_0002/snippet_0001.md"
+                },
+                {
+                    "language": "rust",
+                    "contentUrl": "poly_0002/snippet_0011.md"
+                },
+                {
+                    "language": "scala",
+                    "contentUrl": "poly_0002/snippet_0012.md"
+                },
+                {
+                    "language": "swift",
+                    "contentUrl": "poly_0002/snippet_0013.md"
                 }
             ]
         },

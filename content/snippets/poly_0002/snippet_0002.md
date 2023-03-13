@@ -6,7 +6,7 @@ cr_assert_eq(actual, expected,
             input, expected, actual);
 ```
 
-When a custom message is provided, it completely replaces the default message. User has to provide all required information, like `expected` and `actual` values etc.
+When a custom message is provided, it completely replaces the default message. User has to provide all useful information, like `expected` and `actual` values etc.
 
 **Important:** If the `actual` value is meant be printed on failure, it should be sanitized before being formatted. Otherwise, an incorrect answer (for example, an incorrectly null-terminated string returned by a user solution) can cause tests to crash when the failure message is being formatted.
 
