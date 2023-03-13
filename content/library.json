@@ -56,6 +56,10 @@
                     "contentUrl": "poly_0002/snippet_0006.md"
                 },
                 {
+                    "language": "lua",
+                    "contentUrl": "poly_0002/snippet_0008.md"
+                },
+                {
                     "language": "rust",
                     "contentUrl": "poly_0002/snippet_0012.md"
                 },
