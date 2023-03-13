@@ -32,8 +32,16 @@
             },
             "translations": [
                 {
+                    "languages": ["c", "nasm"],
+                    "contentUrl": "poly_0002/snippet_0002.md"
+                },
+                {
                     "language": "cpp",
                     "contentUrl": "poly_0002/snippet_0007.md"
+                },
+                {
+                    "language": "csharp",
+                    "contentUrl": "poly_0002/snippet_0003.md"
                 },
                 {
                     "language": "rust",
@@ -42,10 +50,6 @@
                 {
                     "language": "ocaml",
                     "contentUrl": "poly_0002/snippet_0001.md"
-                },
-                {
-                    "languages": ["c", "nasm"],
-                    "contentUrl": "poly_0002/snippet_0002.md"
                 }
             ]
         },
