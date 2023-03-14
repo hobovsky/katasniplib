@@ -85,7 +85,7 @@
                     "sampleTests"
                 ],
                 "tags": [
-                    "organisation"
+                    "organization"
                 ]
             },
             "translations": [
@@ -115,10 +115,10 @@
         },
         {
             "stencil": {
-                "title": "Basic organisation of tests",
-                "summary": "Basic organisation of tests into test groups and test cases",
+                "title": "Basic organization of tests",
+                "summary": "Basic organization of tests into test groups and test cases",
                 "kataSnippets": ["sampleTests", "submissionTests"],
-                "tags": ["organisation"]
+                "tags": ["organization"]
             },
             "translations": [
                 {
@@ -207,7 +207,7 @@
                 "submissionTests"
             ],
             "contentUrl": "snippet_0008.md",
-            "tags": ["organisation"]
+            "tags": ["organization"]
         },
         {
             "title": "Custom stringizers",
@@ -271,5 +271,5 @@
             "tags": []
         }
     ],
-    "tags": ["assertions", "organisation", "test suite", "katex", "snowhouse", "output", "chai"]
+    "tags": ["assertions", "organization", "test suite", "katex", "snowhouse", "output", "chai"]
 }
