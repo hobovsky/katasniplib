@@ -136,6 +136,10 @@
                 {
                     "language": "fsharp",
                     "contentUrl": "poly_0005/snippet_0004.md"
+                },
+                {
+                    "language": "java",
+                    "contentUrl": "poly_0005/snippet_0005.md"
                 }
             ]
         }
