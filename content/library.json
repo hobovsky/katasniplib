@@ -112,6 +112,24 @@
                     "contentUrl": "poly_0004/snippet_0014.md"
                 }
             ]
+        },
+        {
+            "stencil": {
+                "title": "Basic organisation of tests",
+                "summary": "Basic organisation of tests into test groups and test cases",
+                "kataSnippets": ["sampleTests", "submissionTests"],
+                "tags": ["organisation"]
+            },
+            "translations": [
+                {
+                    "language": "c",
+                    "contentUrl": "poly_0005/snippet_0001.md"
+                },
+                {
+                    "language": "cpp",
+                    "contentUrl": "poly_0005/snippet_0002.md"
+                }
+            ]
         }
     ],
     "snippets": [
@@ -245,5 +263,5 @@
             "tags": []
         }
     ],
-    "tags": []
+    "tags": ["assertions", "organisation", "test suite", "katex", "snowhouse", "output", "chai"]
 }
