@@ -27,12 +27,6 @@ namespace OuterNamespace.InnerNamespace {
     {
       // ...
     }
-
-    [Test]
-    public void TestMethod2()
-    {
-      // ...
-    }
   }
 }
 ```

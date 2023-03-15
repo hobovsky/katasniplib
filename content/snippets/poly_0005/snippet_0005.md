@@ -18,11 +18,6 @@ class Group2Test {
   void testMethod1() {
     // ...
   }
-  
-  @Test
-  void testMethod2() {
-    // ...
-  }
 }
 ```
 
@@ -48,11 +43,6 @@ class Outer {
   class Group2Test {
     @Test
     void testMethod1() {
-      // ...
-    }
-
-    @Test
-    void testMethod2() {
       // ...
     }
   }

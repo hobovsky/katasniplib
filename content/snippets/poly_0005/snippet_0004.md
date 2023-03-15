@@ -29,10 +29,6 @@ namespace GroupOuter.GroupInner
       [<Test>]
       member this.TestMethod1() =
           // ...
-
-      [<Test>]
-      member this.TestMethod2() =
-          // ...
 ```
 
 Modules and nested modules also work, but usually result in a more cluttered test output:
@@ -66,10 +62,6 @@ module GroupOuter
 
         [<Test>]
         member this.TestMethod1() =
-            // ...
-
-        [<Test>]
-        member this.TestMethod2() =
             // ...
 ```
 

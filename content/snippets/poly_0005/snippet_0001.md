@@ -14,10 +14,6 @@ Test(group1, test2) {
 Test(group2, test1) {
   // ...
 }
-
-Test(group2, test2) {
-  // ...
-}
 ```
 
 Criterion framework does not allow for nested groups.
