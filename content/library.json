@@ -85,7 +85,7 @@
                     "sampleTests"
                 ],
                 "tags": [
-                    "organisation"
+                    "organization"
                 ]
             },
             "translations": [
@@ -110,6 +110,40 @@
                 {
                     "language": "swift",
                     "contentUrl": "poly_0004/snippet_0014.md"
+                }
+            ]
+        },
+        {
+            "stencil": {
+                "title": "Basic organization of tests",
+                "summary": "Basic organization of tests into test groups and test cases",
+                "kataSnippets": ["sampleTests", "submissionTests"],
+                "tags": ["organization"]
+            },
+            "translations": [
+                {
+                    "language": "c",
+                    "contentUrl": "poly_0005/snippet_0001.md"
+                },
+                {
+                    "language": "cpp",
+                    "contentUrl": "poly_0005/snippet_0002.md"
+                },
+                {
+                    "language": "csharp",
+                    "contentUrl": "poly_0005/snippet_0003.md"
+                },
+                {
+                    "language": "fsharp",
+                    "contentUrl": "poly_0005/snippet_0004.md"
+                },
+                {
+                    "language": "java",
+                    "contentUrl": "poly_0005/snippet_0005.md"
+                },
+                {
+                    "language": "javascript",
+                    "contentUrl": "poly_0005/snippet_0006.md"
                 }
             ]
         }
@@ -174,6 +208,16 @@
             "tags": ["assertions"]
         },
         {
+            "title": "Fisher-Yates shuffle",
+            "summary": "",
+            "language": "c",
+            "kataSnippets": [
+                "submissionTests"
+            ],
+            "contentUrl": "snippet_0007.md",
+            "tags": ["random"]
+        },
+        {
             "title": "Example test suite",
             "summary": "",
             "language": "python",
@@ -181,7 +225,7 @@
                 "submissionTests"
             ],
             "contentUrl": "snippet_0008.md",
-            "tags": ["organisation"]
+            "tags": ["organization"]
         },
         {
             "title": "Custom stringizers",
@@ -245,5 +289,5 @@
             "tags": []
         }
     ],
-    "tags": []
+    "tags": [ ]
 }
