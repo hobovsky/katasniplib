@@ -148,6 +148,10 @@
                 {
                     "language": "javascript",
                     "contentUrl": "poly_0005/snippet_0006.md"
+                },
+                {
+                    "language": "lua",
+                    "contentUrl": "poly_0005/snippet_0007.md"
                 }
             ]
         }
