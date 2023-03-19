@@ -126,7 +126,7 @@
             },
             "translations": [
                 {
-                    "language": "c",
+                    "languages": ["c", "nasm"],
                     "contentUrl": "poly_0005/snippet_0001.md"
                 },
                 {
