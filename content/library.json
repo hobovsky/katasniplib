@@ -156,6 +156,10 @@
                 {
                     "language": "ocaml",
                     "contentUrl": "poly_0005/snippet_0008.md"
+                },
+                {
+                    "language": "python",
+                    "contentUrl": "poly_0005/snippet_0009.md"
                 }
             ]
         }
