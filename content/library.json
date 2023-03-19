@@ -152,6 +152,10 @@
                 {
                     "language": "lua",
                     "contentUrl": "poly_0005/snippet_0007.md"
+                },
+                {
+                    "language": "ocaml",
+                    "contentUrl": "poly_0005/snippet_0008.md"
                 }
             ]
         }
