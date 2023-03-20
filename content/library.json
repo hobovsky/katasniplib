@@ -74,6 +74,10 @@
                 {
                     "language": "swift",
                     "contentUrl": "poly_0002/snippet_0013.md"
+                },
+                {
+                    "language": "go",
+                    "contentUrl": "poly_0002/snippet_0014.md"
                 }
             ]
         },
@@ -122,7 +126,7 @@
             },
             "translations": [
                 {
-                    "language": "c",
+                    "languages": ["c", "nasm"],
                     "contentUrl": "poly_0005/snippet_0001.md"
                 },
                 {
@@ -144,6 +148,34 @@
                 {
                     "language": "javascript",
                     "contentUrl": "poly_0005/snippet_0006.md"
+                },
+                {
+                    "language": "lua",
+                    "contentUrl": "poly_0005/snippet_0007.md"
+                },
+                {
+                    "language": "ocaml",
+                    "contentUrl": "poly_0005/snippet_0008.md"
+                },
+                {
+                    "language": "python",
+                    "contentUrl": "poly_0005/snippet_0009.md"
+                },
+                {
+                    "language": "ruby",
+                    "contentUrl": "poly_0005/snippet_0010.md"
+                },
+                {
+                    "language": "rust",
+                    "contentUrl": "poly_0005/snippet_0011.md"
+                },
+                {
+                    "language": "scala",
+                    "contentUrl": "poly_0005/snippet_0012.md"
+                },
+                {
+                    "language": "swift",
+                    "contentUrl": "poly_0005/snippet_0013.md"
                 }
             ]
         }
