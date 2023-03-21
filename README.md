@@ -12,3 +12,6 @@ New features and ideas can be requested with a ticket labeled as `enhancement`.
 New snippets can be proposed by:
 - Recommended way: creating a ticket labeled as `new-snippet`, preferrably by using the issue template "Proposing a snippet", or
 - Difficult way: creating a pull request with an updated `library.json` metadata and a new markdown file with a content of the proposed snippet. Structure of the library file is described on [wiki](https://github.com/hobovsky/katasniplib/wiki/Structure-of-the-library-file). Schema of the `library.json` can be found in `resources/library.schema.json`.
+
+If you need a snippet but do not know how to write it or how to create a proposal, you can create an issue and label it as `snippet-request`.
+
