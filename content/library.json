@@ -11,6 +11,10 @@
             },
             "translations": [
                 {
+                    "language": "swift",
+                    "contentUrl": "poly_0001/snippet_0001.md"
+                },
+                {
                     "language": "python",
                     "contentUrl": "poly_0001/snippet_0004.md"
                 },
