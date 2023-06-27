@@ -313,6 +313,14 @@
             "tags": []
         },
         {
+            "title": "Titles for Criterion test cases",
+            "summary": "Add readable titles to Criterion tests.",
+            "languages": ["c", "nasm" ],
+            "kataSnippets": [ "submissionTests", "sampleTests" ],
+            "contentUrl": "snippet_0012.md",
+            "tags": [ "criterion" ]
+        },
+        {
             "title": "",
             "summary": "",
             "languages": [
