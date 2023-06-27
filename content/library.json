@@ -15,6 +15,10 @@
                     "contentUrl": "poly_0001/snippet_0001.md"
                 },
                 {
+                    "language": "coffeescript",
+                    "contentUrl": "poly_0001/snippet_0003.md"
+                },
+                {
                     "language": "python",
                     "contentUrl": "poly_0001/snippet_0004.md"
                 },
@@ -97,6 +101,10 @@
                 ]
             },
             "translations": [
+                {
+                    "language": "coffeescript",
+                    "contentUrl": "poly_0003/snippet_0001.md"
+                },
                 {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"

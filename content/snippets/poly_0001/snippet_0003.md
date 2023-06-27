@@ -1,0 +1,4 @@
+```coffeescript
+mySolution = (arg) ->
+  # TODO
+```
