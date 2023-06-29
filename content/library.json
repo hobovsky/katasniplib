@@ -188,6 +188,26 @@
                 {
                     "language": "swift",
                     "contentUrl": "poly_0005/snippet_0013.md"
+                },
+                {
+                    "language": "coffeescript",
+                    "contentUrl": "poly_0005/snippet_0014.md"
+                }
+            ]
+        },
+        {
+            "stencil": {
+                "title": "Ordering of tests",
+                "summary": "",
+                "kataSnippets": [
+                    "sampleTests", "submissionTests"
+                ],
+                "tags": []
+            },
+            "translations": [
+                {
+                    "language": "java",
+                    "contentUrl": "poly_0006/snippet_0001.md"
                 }
             ]
         }

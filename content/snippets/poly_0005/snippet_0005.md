@@ -1,6 +1,8 @@
 Since the submission tests snippet is saved to a single Java file, there can be at most one top level, public class. Fortunately, JUnit works well also with package-visible classes:
 
 ```java
+import org.junit.jupiter.api.*;
+
 class Group1Test {
   @Test
   void testMethod1() {
@@ -24,6 +26,8 @@ class Group2Test {
 Nesting of groups can be achieved with the `@org.junit.jupiter.api.Nested` annotation:
 
 ```java
+import org.junit.jupiter.api.*;
+
 class Outer {
   
   @Nested
