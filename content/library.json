@@ -25,6 +25,10 @@
                 {
                     "language": "rust",
                     "contentUrl": "poly_0001/snippet_0002.md"
+                },
+                {
+                    "language": "julia",
+                    "contentUrl": "poly_0001/snippet_0005.md"
                 }
             ]
         },
@@ -105,6 +109,10 @@
                     "language": "coffeescript",
                     "contentUrl": "poly_0003/snippet_0001.md"
                 },
+                {
+                    "language": "julia",
+                    "contentUrl": "poly_0003/snippet_0002.md"
+                },                
                 {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"
@@ -347,6 +355,16 @@
             "kataSnippets": [ "submissionTests", "sampleTests" ],
             "contentUrl": "snippet_0012.md",
             "tags": [ "criterion" ]
+        },
+        {
+            "title": "Example suite of submission tests",
+            "summary": "",
+            "language": "julia",
+            "kataSnippets": [
+                "submissionTests"
+            ],
+            "contentUrl": "julia/snippet_0001.md",
+            "tags": []
         },
         {
             "title": "",
