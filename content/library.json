@@ -15,6 +15,10 @@
                     "contentUrl": "poly_0001/snippet_0001.md"
                 },
                 {
+                    "language": "rust",
+                    "contentUrl": "poly_0001/snippet_0002.md"
+                },
+                {
                     "language": "coffeescript",
                     "contentUrl": "poly_0001/snippet_0003.md"
                 },
@@ -23,13 +27,13 @@
                     "contentUrl": "poly_0001/snippet_0004.md"
                 },
                 {
-                    "language": "rust",
-                    "contentUrl": "poly_0001/snippet_0002.md"
-                },
-                {
                     "language": "julia",
                     "contentUrl": "poly_0001/snippet_0005.md"
-                }
+                },
+                {
+                    "language": "fsharp",
+                    "contentUrl": "poly_0001/snippet_0006.md"
+                }                
             ]
         },
         {
@@ -112,7 +116,11 @@
                 {
                     "language": "julia",
                     "contentUrl": "poly_0003/snippet_0002.md"
-                },                
+                },
+                {
+                    "language": "fsharp",
+                    "contentUrl": "poly_0003/snippet_0003.md"
+                },                 
                 {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"
