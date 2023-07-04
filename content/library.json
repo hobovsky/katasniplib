@@ -33,7 +33,11 @@
                 {
                     "language": "fsharp",
                     "contentUrl": "poly_0001/snippet_0006.md"
-                }                
+                },
+                {
+                    "language": "ocaml",
+                    "contentUrl": "poly_0001/snippet_0007.md"
+                }  
             ]
         },
         {
@@ -120,7 +124,11 @@
                 {
                     "language": "fsharp",
                     "contentUrl": "poly_0003/snippet_0003.md"
-                },                 
+                },    
+                {
+                    "language": "ocaml",
+                    "contentUrl": "poly_0003/snippet_0004.md"
+                },                              
                 {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"
