@@ -1,7 +1,7 @@
 ```rust
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::my_solution;
 
     #[test]
     fn test_case_1() {
