@@ -245,31 +245,31 @@
             "translations": [
                 {
                     "language": "csharp",
-                    "contentUrl": "poly0007/snippet_0001.md"
+                    "contentUrl": "poly_0007/snippet_0001.md"
                 },
                 {
                     "language": "javascript",
-                    "contentUrl": "poly0007/snippet_0002.md"
+                    "contentUrl": "poly_0007/snippet_0002.md"
                 },
                 {
                     "language": "swift",
-                    "contentUrl": "poly0007/snippet_0003.md"
+                    "contentUrl": "poly_0007/snippet_0003.md"
                 },
                 {
                     "language": "cpp",
-                    "contentUrl": "poly0007/snippet_0004.md"
+                    "contentUrl": "poly_0007/snippet_0004.md"
                 },
                 {
                     "language": "julia",
-                    "contentUrl": "poly0007/snippet_0005.md"
+                    "contentUrl": "poly_0007/snippet_0005.md"
                 },
                 {
                     "language": "go",
-                    "contentUrl": "poly0007/snippet_0006.md"
+                    "contentUrl": "poly_0007/snippet_0006.md"
                 },
                 {
                     "language": "c",
-                    "contentUrl": "poly0007/snippet_0007.md"
+                    "contentUrl": "poly_0007/snippet_0007.md"
                 }
             ]
         }
