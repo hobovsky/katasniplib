@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kata Snippets
 // @namespace    https://github.com/hobovsky/katasniplib/
-// @version      0.9
+// @version      0.10
 // @description  Insert snippets into kata
 // @author       hobovsky
 // @match        https://www.codewars.com/*
@@ -73,6 +73,36 @@ ul.snippetsList {
         console.info("ERROR!", "error");
     }
     let currentDialog = null;
+
+    function getEditorControl(editorName) {
+
+        const isEditor = () => document.querySelector('h1.page-title')?.innerHTML == 'Kata Editor';
+
+        const editorDataName = {
+            description:      "write_description",
+            completeSolution: isEditor() ? "answer" : "code",
+            solutionSetup:    "setup",
+            preloaded:        "package",
+            submissionTests:  "fixture",
+            sampleTests:      "example_fixture"
+        }[editorName];
+
+        return document.querySelector(`li[data-tab='${editorDataName}']`).querySelector('div.CodeMirror');
+    }
+
+    function insertSelected() {
+        let selectedText = window.getSelection()?.toString();
+        if(!selectedText)
+            return;
+
+        let editorControl = getEditorControl(currentDialog.editor);
+        if(!editorControl)
+            return;
+
+        editorControl.CodeMirror.replaceSelection(selectedText);
+    }
+
+
     function buildSnippetsDialog(lang, library, editor) {
 
         jQuery('#glotSnippetsDialog').remove();
@@ -255,8 +285,6 @@ ul.snippetsList {
             "description":      5
         };
         let accordion = jQuery("#accordion").accordion({active: idxs[editor] ?? 1 });
-
-
         let tagsSelect = null;
 
         function listTaggedSnippets() {
@@ -305,8 +333,15 @@ ul.snippetsList {
                     }
                 },
                 {
-                    text: "OK",
+                    text: "Close",
                     click: function() { jQuery(this).dialog("close"); }
+                },
+                {
+                    text: "Insert selected",
+                    click: function() {
+                        insertSelected(this);
+                        jQuery(this).dialog("close");
+                    }
                 }
             ]
         });
@@ -342,12 +377,13 @@ ul.snippetsList {
             let activeSection = idxs[editor] ?? 1;
             currentDialog.accordion.accordion("option", "active", activeSection);
 
-            return currentDialog;
+        } else {
+            console.info(`Creating dialog for ${lang.langId}`);
+            currentDialog = buildSnippetsDialog(lang, library, editor);
+            currentDialog.lang = lang;
         }
 
-        console.info(`Creating dialog for ${lang.langId}`);
-        currentDialog = buildSnippetsDialog(lang, library, editor);
-        currentDialog.lang = lang;
+        currentDialog.editor = editor;
         return currentDialog;
     }
 
