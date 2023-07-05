@@ -234,6 +234,44 @@
                     "contentUrl": "poly_0006/snippet_0001.md"
                 }
             ]
+        },
+        {
+            "stencil": {
+                "title": "Shuffle",
+                "summary": "",
+                "kataSnippets": [ "submissionTests" ],
+                "tags": [ "random" ]
+            },
+            "translations": [
+                {
+                    "language": "csharp",
+                    "contentUrl": "poly0007/snippet_0001.md"
+                },
+                {
+                    "language": "javascript",
+                    "contentUrl": "poly0007/snippet_0002.md"
+                },
+                {
+                    "language": "swift",
+                    "contentUrl": "poly0007/snippet_0003.md"
+                },
+                {
+                    "language": "cpp",
+                    "contentUrl": "poly0007/snippet_0004.md"
+                },
+                {
+                    "language": "julia",
+                    "contentUrl": "poly0007/snippet_0005.md"
+                },
+                {
+                    "language": "go",
+                    "contentUrl": "poly0007/snippet_0006.md"
+                },
+                {
+                    "language": "c",
+                    "contentUrl": "poly0007/snippet_0007.md"
+                }
+            ]
         }
     ],
     "snippets": [
@@ -294,16 +332,6 @@
             ],
             "contentUrl": "snippet_0006.md",
             "tags": ["assertions"]
-        },
-        {
-            "title": "Fisher-Yates shuffle",
-            "summary": "",
-            "language": "c",
-            "kataSnippets": [
-                "submissionTests"
-            ],
-            "contentUrl": "snippet_0007.md",
-            "tags": ["random"]
         },
         {
             "title": "Example test suite",
