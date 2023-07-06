@@ -160,6 +160,10 @@
             },
             "translations": [
                 {
+                    "language": "crystal",
+                    "contentUrl": "poly_0004/snippet_0001.md"
+                },
+                {
                     "language": "swift",
                     "contentUrl": "poly_0004/snippet_0014.md"
                 }
