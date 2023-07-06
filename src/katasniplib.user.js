@@ -87,7 +87,10 @@ ul.snippetsList {
             sampleTests:      "example_fixture"
         }[editorName];
 
-        return document.querySelector(`li[data-tab='${editorDataName}']`).querySelector('div.CodeMirror');
+        let byTab = document.querySelector(`li[data-tab='${editorDataName}']`);
+        let byFullScreenDiv = document.querySelector('div.is-full-screen');
+        let editors = [byTab, byFullScreenDiv].map(e => e?.querySelector('div.CodeMirror')).filter(Boolean);
+        return editors[0];
     }
 
     function insertSelected() {
@@ -421,6 +424,10 @@ ul.snippetsList {
         }
     }
 
+    function showQuickSnippetsMenu(e) {
+        alert('hello');
+    }
+
     $(document).arrive(".commands-container ul", {existing: true, onceOnly: false}, function(elem) {
 
         function getEditor(e) {
@@ -440,8 +447,16 @@ ul.snippetsList {
         }
 
         let editor = getEditor(elem) || "submissionTests";
-        $(elem).append('<li><a class="lnkShowSnippets">{...}</a></li>');
-        $(elem).find("li a.lnkShowSnippets").on("click", { editor }, showSnippetsLibrary);
+
+        /*
+        if(!$(elem).find("li a.lnkShowQuickSnippetsMenu").length) {
+            $(elem).append('<li><a class="lnkShowQuickSnippetsMenu">[ Q ]</a></li>');
+            $(elem).find("li a.lnkShowQuickSnippetsMenu").on("click", { editor }, showQuickSnippetsMenu);
+        }*/
+        if(!$(elem).find("li a.lnkShowSnippets").length) {
+            $(elem).append('<li><a class="lnkShowSnippets">{...}</a></li>');
+            $(elem).find("li a.lnkShowSnippets").on("click", { editor }, showSnippetsLibrary);
+        }
     });
 
 
