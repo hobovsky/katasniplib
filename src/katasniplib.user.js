@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kata Snippets
 // @namespace    https://github.com/hobovsky/katasniplib/
-// @version      0.10
+// @version      0.11
 // @description  Insert snippets into kata
 // @author       hobovsky
 // @match        https://www.codewars.com/*
