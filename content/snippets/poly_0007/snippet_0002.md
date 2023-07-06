@@ -4,5 +4,4 @@
 const _ = require('lodash'); // introduce lodash library
 
 let shuffledCases = _.shuffle(testCases);
-}
 ```
