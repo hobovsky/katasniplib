@@ -138,9 +138,13 @@
                     "contentUrl": "poly_0003/snippet_0004.md"
                 },                              
                 {
+                    "language": "crystal",
+                    "contentUrl": "poly_0003/snippet_0005.md"
+                },
+                {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"
-                }
+                }                              
             ]
         },
         {
