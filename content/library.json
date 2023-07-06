@@ -102,6 +102,10 @@
                 {
                     "language": "go",
                     "contentUrl": "poly_0002/snippet_0014.md"
+                },
+                {
+                    "language": "crystal",
+                    "contentUrl": "poly_0002/snippet_0015.md"
                 }
             ]
         },
