@@ -37,7 +37,11 @@
                 {
                     "language": "ocaml",
                     "contentUrl": "poly_0001/snippet_0007.md"
-                }  
+                },
+                {
+                    "language": "crystal",
+                    "contentUrl": "poly_0001/snippet_0008.md"
+                } 
             ]
         },
         {
