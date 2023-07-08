@@ -45,6 +45,10 @@
                 {
                     "language": "javascript",
                     "contentUrl": "poly_0001/snippet_0009.md"
+                },
+                {
+                    "language": "clojure",
+                    "contentUrl": "poly_0001/snippet_0010.md"
                 }
 
             ]
@@ -111,6 +115,10 @@
                 {
                     "language": "crystal",
                     "contentUrl": "poly_0002/snippet_0015.md"
+                },
+                {
+                    "language": "clojure",
+                    "contentUrl": "poly_0002/snippet_0016.md"
                 }
             ]
         },
@@ -151,9 +159,13 @@
                     "contentUrl": "poly_0003/snippet_0006.md"
                 },
                 {
+                    "language": "clojure",
+                    "contentUrl": "poly_0003/snippet_0007.md"
+                },
+                {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"
-                }                              
+                }              
             ]
         },
         {
@@ -175,6 +187,10 @@
                 {
                     "language": "javascript",
                     "contentUrl": "poly_0004/snippet_0002.md"
+                },
+                {
+                    "language": "clojure",
+                    "contentUrl": "poly_0004/snippet_0003.md"
                 },
                 {
                     "language": "swift",
@@ -299,6 +315,10 @@
                 {
                     "language": "c",
                     "contentUrl": "poly_0007/snippet_0007.md"
+                },
+                {
+                    "language": "clojure",
+                    "contentUrl": "poly_0007/snippet_0008.md"
                 }
             ]
         }
