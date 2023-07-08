@@ -41,7 +41,12 @@
                 {
                     "language": "crystal",
                     "contentUrl": "poly_0001/snippet_0008.md"
-                } 
+                },
+                {
+                    "language": "javascript",
+                    "contentUrl": "poly_0001/snippet_0009.md"
+                }
+
             ]
         },
         {
@@ -142,6 +147,10 @@
                     "contentUrl": "poly_0003/snippet_0005.md"
                 },
                 {
+                    "language": "javascript",
+                    "contentUrl": "poly_0003/snippet_0006.md"
+                },
+                {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"
                 }                              
@@ -162,6 +171,10 @@
                 {
                     "language": "crystal",
                     "contentUrl": "poly_0004/snippet_0001.md"
+                },
+                {
+                    "language": "javascript",
+                    "contentUrl": "poly_0004/snippet_0002.md"
                 },
                 {
                     "language": "swift",
