@@ -4,17 +4,10 @@ import XCTest
 class FixedTests: XCTestCase {
   
   static var fixedTests = [
-    ("Examples",                         testExamples           ),  
     ("Tests for one type of inputs",     testSomeTypeOfInputs   ),
     ("Tests for another type of inputs", testAnotherTypeOfInputs),
     ("Tests for edge cases" ,            testEdgeCases          )
   ]
-
-  func testExamples() {
-    // Examples from description
-    VerifySolution(1, "Odd" )
-    // ...
-  }
 
   func testSomeTypeOfInputs() {
     VerifySolution(2, "Even")
