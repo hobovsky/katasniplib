@@ -299,7 +299,7 @@
                 "sampleTests",
                 "submissionTests"
             ],
-            "contentUrl": "snippet_0001.md",
+            "contentUrl": "standalone/python/snippet_0001.md",
             "tags": []
         },
         {
@@ -309,7 +309,7 @@
             "kataSnippets": [
                 "description"
             ],
-            "contentUrl": "snippet_0002.md",
+            "contentUrl": "standalone/description/snippet_0002.md",
             "tags": [
                 "katex"
             ]
@@ -324,7 +324,7 @@
                 "sampleTests",
                 "submissionTests"
             ],
-            "contentUrl": "snippet_0003.md",
+            "contentUrl": "standalone/python/snippet_0003.md",
             "tags": []
         },
         {
@@ -335,7 +335,7 @@
                 "sampleTests",
                 "submissionTests"
             ],
-            "contentUrl": "snippet_0005.md",
+            "contentUrl": "standalone/python/snippet_0005.md",
             "tags": ["assertions"]
         },
         {
@@ -346,7 +346,7 @@
                 "sampleTests",
                 "submissionTests"
             ],
-            "contentUrl": "snippet_0006.md",
+            "contentUrl": "standalone/ocaml/snippet_0006.md",
             "tags": ["assertions"]
         },
         {
@@ -356,7 +356,7 @@
             "kataSnippets": [
                 "submissionTests"
             ],
-            "contentUrl": "snippet_0008.md",
+            "contentUrl": "standalone/python/snippet_0008.md",
             "tags": ["organization"]
         },
         {
@@ -368,7 +368,7 @@
                 "submissionTests",
                 "preloaded"
             ],
-            "contentUrl": "snippet_0009.md",
+            "contentUrl": "standalone/cpp/snippet_0009.md",
             "tags": [
                 "snowhouse", "output"
             ]
@@ -381,7 +381,7 @@
                 "sampleTests",
                 "submissionTests"
             ],
-            "contentUrl": "snippet_0010.md",
+            "contentUrl": "standalone/javascript/snippet_0010.md",
             "tags": [
                 "chai", "output"
             ]
@@ -395,7 +395,7 @@
                 "submissionTests",
                 "preloaded"
             ],
-            "contentUrl": "snippet_0011.md",
+            "contentUrl": "standalone/python/snippet_0011.md",
             "tags": ["output"]
         },
         {
@@ -405,7 +405,7 @@
             "kataSnippets": [
                 "submissionTests"
             ],
-            "contentUrl": "snippet_0004.md",
+            "contentUrl": "standalone/python/snippet_0004.md",
             "tags": []
         },
         {
@@ -413,7 +413,7 @@
             "summary": "Add readable titles to Criterion tests.",
             "languages": ["c", "nasm" ],
             "kataSnippets": [ "submissionTests", "sampleTests" ],
-            "contentUrl": "snippet_0012.md",
+            "contentUrl": "standalone/c/snippet_0012.md",
             "tags": [ "criterion" ]
         },
         {
@@ -423,7 +423,7 @@
             "kataSnippets": [
                 "submissionTests"
             ],
-            "contentUrl": "julia/snippet_0001.md",
+            "contentUrl": "standalone/julia/snippet_0001.md",
             "tags": []
         },
         {
