@@ -119,6 +119,10 @@
                 {
                     "language": "clojure",
                     "contentUrl": "poly_0002/snippet_0016.md"
+                },
+                {
+                    "language": "python",
+                    "contentUrl": "poly_0002/snippet_0017.md"
                 }
             ]
         },
@@ -163,6 +167,10 @@
                     "contentUrl": "poly_0003/snippet_0007.md"
                 },
                 {
+                    "language": "python",
+                    "contentUrl": "poly_0003/snippet_0008.md"
+                },
+                {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"
                 }              
@@ -191,6 +199,10 @@
                 {
                     "language": "clojure",
                     "contentUrl": "poly_0004/snippet_0003.md"
+                },
+                {
+                    "language": "python",
+                    "contentUrl": "poly_0004/snippet_0004.md"
                 },
                 {
                     "language": "swift",
@@ -319,6 +331,10 @@
                 {
                     "language": "clojure",
                     "contentUrl": "poly_0007/snippet_0008.md"
+                },
+                {
+                    "language": "python",
+                    "contentUrl": "poly_0007/snippet_0009.md"
                 }
             ]
         }
@@ -361,7 +377,7 @@
             "tags": []
         },
         {
-            "title": "Example assertions",
+            "title": "Useful assertions",
             "summary": "",
             "language": "python",
             "kataSnippets": [
@@ -381,16 +397,6 @@
             ],
             "contentUrl": "standalone/ocaml/snippet_0006.md",
             "tags": ["assertions"]
-        },
-        {
-            "title": "Example test suite",
-            "summary": "",
-            "language": "python",
-            "kataSnippets": [
-                "submissionTests"
-            ],
-            "contentUrl": "standalone/python/snippet_0008.md",
-            "tags": ["organization"]
         },
         {
             "title": "Custom stringizers",
