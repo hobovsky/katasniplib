@@ -23,9 +23,9 @@
 (deftest random-tests
   (let [test-cases-scenario-1  (... generate test cases ...) ;; test cases are of form
         test-cases-scenario-2  (... generate test cases ...) ;; { :input :expected }  
-        all-test-cases (shuffle (concat test-cases-scenario-1 test-cases-scenario-2))])
+        all-test-cases (shuffle (concat test-cases-scenario-1 test-cases-scenario-2))]
   (testing "Test case"
-    (doseq [{input :input expected :expected} all-test-cases] (do-test input expected))))
+    (doseq [{input :input expected :expected} all-test-cases] (do-test input expected)))))
 
 (defn test-ns-hook []
   (fixed-tests )
