@@ -345,6 +345,20 @@
                     "contentUrl": "poly_0007/snippet_0009.md"
                 }
             ]
+        },
+        {
+            "stencil": {
+                "title": "Generated test cases",
+                "summary": "",
+                "kataSnippets": [ "submissionTests" ],
+                "tags": [ ]
+            },
+            "translations": [
+                {
+                    "language": "csharp",
+                    "contentUrl": "poly_0008/snippet_0001.md"
+                }
+            ]
         }
     ],
     "snippets": [
