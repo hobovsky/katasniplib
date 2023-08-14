@@ -49,6 +49,10 @@
                 {
                     "language": "clojure",
                     "contentUrl": "poly_0001/snippet_0010.md"
+                },
+                {
+                    "language": "csharp",
+                    "contentUrl": "poly_0001/snippet_0011.md"
                 }
 
             ]
