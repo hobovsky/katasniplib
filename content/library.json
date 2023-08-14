@@ -175,6 +175,10 @@
                     "contentUrl": "poly_0003/snippet_0008.md"
                 },
                 {
+                    "language": "csharp",
+                    "contentUrl": "poly_0003/snippet_0009.md"
+                },
+                {
                     "language": "swift",
                     "contentUrl": "poly_0003/snippet_0013.md"
                 }              
