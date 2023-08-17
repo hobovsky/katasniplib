@@ -53,6 +53,10 @@
                 {
                     "language": "csharp",
                     "contentUrl": "poly_0001/snippet_0011.md"
+                },
+                {
+                    "language": "ruby",
+                    "contentUrl": "poly_0001/snippet_0012.md"
                 }
 
             ]
@@ -127,6 +131,10 @@
                 {
                     "language": "python",
                     "contentUrl": "poly_0002/snippet_0017.md"
+                },
+                {
+                    "language": "ruby",
+                    "contentUrl": "poly_0002/snippet_0018.md"
                 }
             ]
         },
@@ -177,6 +185,10 @@
                 {
                     "language": "csharp",
                     "contentUrl": "poly_0003/snippet_0009.md"
+                },
+                {
+                    "language": "ruby",
+                    "contentUrl": "poly_0003/snippet_0010.md"
                 },
                 {
                     "language": "swift",
@@ -343,6 +355,10 @@
                 {
                     "language": "python",
                     "contentUrl": "poly_0007/snippet_0009.md"
+                },
+                {
+                    "language": "ruby",
+                    "contentUrl": "poly_0007/snippet_0010.md"
                 }
             ]
         },
