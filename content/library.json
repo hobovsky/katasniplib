@@ -504,6 +504,16 @@
             "tags": []
         },
         {
+            "title": "Reference solution with `let`",
+            "summary": "",
+            "language": "ruby",
+            "kataSnippets": [
+                "submissionTests"
+            ],
+            "contentUrl": "standalone/ruby/snippet_0013.md",
+            "tags": ["rspec"]
+        },
+        {
             "title": "",
             "summary": "",
             "languages": [
